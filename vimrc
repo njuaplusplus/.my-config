@@ -72,6 +72,7 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+let g:syntastic_tex_chktex_args = '-n 1'
 
 set t_Co=256         " Explicitly tell Vim that the terminal support 256 colors
 python from powerline.vim import setup as powerline_setup
@@ -156,19 +157,19 @@ map <C-k> :res+5 <CR>
 
 " Change default target to pdf, if not dvi is used
 let g:Tex_DefaultTargetFormat = 'pdf'
- 
+
 " Setup the compile rule for pdf to use pdflatex with synctex enabled
-let g:Tex_CompileRule_pdf = 'pdflatex -synctex=1 --interaction=nonstopmode $*' 
- 
+let g:Tex_CompileRule_pdf = 'pdflatex -synctex=1 --interaction=nonstopmode $*'
+
 " PDF display rule
 let g:Tex_ViewRule_pdf = 'open -a Skim'
- 
+
 map ,ll <leader>ll
- 
+
 " ,ls to forward search
 map ,ls :w<CR>:silent !/Applications/Skim.app/Contents/SharedSupport/displayline -r <C-r>=line('.')<CR> %<.pdf %<CR><CR>
- 
-" ,lv to display pdf 
+
+" ,lv to display pdf
 map ,lv <leader>lv
 
 " OPTIONAL: Starting with Vim 7, the filetype of empty .tex files defaults to
