@@ -87,11 +87,6 @@ set fileencoding=utf-8
 set fileencodings=utf-8,ucs-bom,gbk,cp936,gb2312,gb18030
 let &termencoding=&encoding
 
-if has("gui_macvim")
-    " set macvim specific stuff
-    set guifont=Monaco\ for\ Powerline:h12
-endif
-
 filetype on
 " done by the plasticboy/vim-markdown
 au BufRead,BufNewFile *.md set filetype=markdown
