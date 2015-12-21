@@ -91,26 +91,26 @@ let &termencoding=&encoding
 filetype on
 " done by the plasticboy/vim-markdown
 au BufRead,BufNewFile *.md set filetype=markdown
-autocmd BufNewFile *.cpp,*.[ch],*.sh,*.java,*.py exec ":call SetTitle()" 
-""定义函数SetTitle，自动插入文件头 
-func SetTitle() 
-    "如果文件类型为.sh文件 
-    if &filetype == 'sh' 
-        call setline(1,"\#!/bin/bash") 
-        call append(line("."), "") 
+autocmd BufNewFile *.cpp,*.[ch],*.sh,*.java,*.py exec ":call SetTitle()"
+""定义函数SetTitle，自动插入文件头
+func SetTitle()
+    "如果文件类型为.sh文件
+    if &filetype == 'sh'
+        call setline(1,"\#!/bin/bash")
+        call append(line("."), "")
         elseif &filetype == 'python'
         call setline(1,"#!/usr/bin/env python")
         call append(line("."),"# coding=utf-8")
-        call append(line(".")+1, "") 
+        call append(line(".")+1, "")
     "    elseif &filetype == 'mkd'
     "        call setline(1,"<head><meta charset=\"UTF-8\"></head>")
     else 
-        call setline(1, "/*************************************************************************") 
+        call setline(1, "/*************************************************************************")
         call append(line("."), "    > File Name: ".expand("%"))
         call append(line(".")+1, "    > Author: njuapp")
         call append(line(".")+2, "    > Mail: njuaplusplus@gmail.com ")
         call append(line(".")+3, "    > Created Time: ".strftime("%c"))
-        call append(line(".")+4, " ************************************************************************/") 
+        call append(line(".")+4, " ************************************************************************/")
         call append(line(".")+5, "")
     endif
     if &filetype == 'cpp'
