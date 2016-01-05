@@ -26,6 +26,7 @@ Plugin 'Valloric/MatchTagAlways'
 Plugin 'chrisbra/Colorizer'
 Plugin 'KabbAmine/vCoolor.vim'
 Plugin 'vim-latex/vim-latex'
+Plugin 'nathanaelkane/vim-indent-guides'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
