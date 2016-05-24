@@ -27,6 +27,7 @@ Plugin 'chrisbra/Colorizer'
 Plugin 'KabbAmine/vCoolor.vim'
 Plugin 'vim-latex/vim-latex'
 Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'rizzatti/dash.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -177,4 +178,3 @@ map ,lv <leader>lv
 " 'plaintex' instead of 'tex', which results in vim-latex not being loaded.
 " The following changes the default filetype back to 'tex':
 let g:tex_flavor='latex'
-
