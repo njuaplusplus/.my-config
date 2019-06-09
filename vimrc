@@ -65,6 +65,7 @@ set listchars=tab:>-,trail:-
 set ignorecase              "检索时忽略大小写
 set smartcase
 " set mouse=n
+set tabpagemax=150
 syntax enable
 syntax on
 
@@ -137,6 +138,12 @@ endfunc
 autocmd BufNewFile * normal G
 filetype plugin indent on
 
+" Uncomment the following to have Vim jump to the last position when
+" reopening a file
+if has("autocmd")
+  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+endif
+
 " for solarized, if you do use the custom terminal colors rather than the
 " solarized palette for terminal
 " let g:solarized_termcolors=256
@@ -187,3 +194,13 @@ let g:tex_flavor='latex'
 " disable ctrl+a which increases the number
 " https://stackoverflow.com/questions/36601789/disable-for-good-vims-number-increment-that-is-mapped-to-ctrl-a
 map <C-a> <Nop>
+
+function Py2()
+  let g:syntastic_python_python_exec = '/usr/bin/python'
+endfunction
+
+function Py3()
+  let g:syntastic_python_python_exec = '/usr/bin/python3'
+endfunction
+
+" call Py3()   " default to Py3 because I try to use it when possible
