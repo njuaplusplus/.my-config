@@ -21,6 +21,7 @@ Plugin 'altercation/vim-colors-solarized'
 " for statline, like powerline
 " Plugin 'scrooloose/vim-statline'
 " Plugin 'bling/vim-airline'
+Plugin 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
 Plugin 'Valloric/MatchTagAlways'
 " Plugin 'gregsexton/MatchTag'
 Plugin 'chrisbra/Colorizer'
@@ -62,6 +63,8 @@ set hlsearch
 set list
 set listchars=tab:>-,trail:-
 set ignorecase              "检索时忽略大小写
+set smartcase
+" set mouse=n
 syntax enable
 syntax on
 
@@ -77,9 +80,10 @@ let g:syntastic_check_on_wq = 0
 let g:syntastic_tex_chktex_args = '-n 1'
 
 set t_Co=256         " Explicitly tell Vim that the terminal support 256 colors
-python from powerline.vim import setup as powerline_setup
-python powerline_setup()
-python del powerline_setup
+" Using vundle to add powerline only in vim
+" python from powerline.vim import setup as powerline_setup
+" python powerline_setup()
+" python del powerline_setup
 
 nmap tt :%s/\t/    /g<CR>
 
@@ -136,6 +140,7 @@ filetype plugin indent on
 " for solarized, if you do use the custom terminal colors rather than the
 " solarized palette for terminal
 " let g:solarized_termcolors=256
+let g:solarized_termtrans = 1
 colorscheme solarized
 
 " for plugin 'Valloric/MatchTagAlways'
@@ -150,7 +155,7 @@ let g:mta_filetypes = {
     \}
 
 " for plugin 'scrooloose/nerdtree'
-autocmd VimEnter * NERDTree
+" autocmd VimEnter * NERDTree
 
 map <C-h> :vert: res-5<CR>
 map <C-l> :vert: res+5<CR>
@@ -178,3 +183,7 @@ map ,lv <leader>lv
 " 'plaintex' instead of 'tex', which results in vim-latex not being loaded.
 " The following changes the default filetype back to 'tex':
 let g:tex_flavor='latex'
+
+" disable ctrl+a which increases the number
+" https://stackoverflow.com/questions/36601789/disable-for-good-vims-number-increment-that-is-mapped-to-ctrl-a
+map <C-a> <Nop>
